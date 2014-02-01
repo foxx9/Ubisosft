@@ -42,10 +42,12 @@ namespace Shared
 		void operator >> (netU32 &val_out);
 		void operator >> (Serializer& val_out);
 
+		bool isBigIndian();
+
 	protected:
 
 	private:
-		bool isBigIndian();
+		
 
 	};
 
