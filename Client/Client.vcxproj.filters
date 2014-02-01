@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="engine.cpp" />
+    <ClCompile Include="world.cpp" />
+    <ClCompile Include="ressourcemanager.cpp" />
+    <ClCompile Include="player.cpp" />
+    <ClCompile Include="animator.cpp" />
+    <ClCompile Include="bomb.cpp" />
+    <ClCompile Include="explosion.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="engine.h" />
+    <ClInclude Include="world.h" />
+    <ClInclude Include="ressourcemanager.h" />
+    <ClInclude Include="entity.h" />
+    <ClInclude Include="player.h" />
+    <ClInclude Include="animator.h" />
+    <ClInclude Include="bomb.h" />
+    <ClInclude Include="explosion.h" />
+  </ItemGroup>
+</Project>

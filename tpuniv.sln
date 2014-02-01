@@ -1,0 +1,77 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Matchmaking", "Matchmaking\Matchmaking.vcxproj", "{5EDB4107-A971-44D3-86C3-57F8FC54DF15}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C0DBC330-5827-4DC7-BFC4-621AED444FAC} = {C0DBC330-5827-4DC7-BFC4-621AED444FAC}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Session", "Session\Session.vcxproj", "{E30D2257-8B79-4E27-BC23-FC171405DFF0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C0DBC330-5827-4DC7-BFC4-621AED444FAC} = {C0DBC330-5827-4DC7-BFC4-621AED444FAC}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Shared", "Shared\Shared.vcxproj", "{C0DBC330-5827-4DC7-BFC4-621AED444FAC}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Broker", "Broker\Broker.vcxproj", "{5A1793D9-A12C-49DD-9622-2DC98508AF7B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C0DBC330-5827-4DC7-BFC4-621AED444FAC} = {C0DBC330-5827-4DC7-BFC4-621AED444FAC}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Client", "Client\Client.vcxproj", "{B68DE41E-16FD-4201-9B4F-5C5C45B3B646}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C0DBC330-5827-4DC7-BFC4-621AED444FAC} = {C0DBC330-5827-4DC7-BFC4-621AED444FAC}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 6
+		SccProjectName0 = Perforce\u0020Project
+		SccLocalPath0 = .
+		SccProvider0 = MSSCCI:Perforce\u0020SCM
+		SccProjectUniqueName1 = Matchmaking\\Matchmaking.vcxproj
+		SccLocalPath1 = .
+		SccProjectFilePathRelativizedFromConnection1 = Matchmaking\\
+		SccProjectUniqueName2 = Session\\Session.vcxproj
+		SccLocalPath2 = .
+		SccProjectFilePathRelativizedFromConnection2 = Session\\
+		SccProjectUniqueName3 = Shared\\Shared.vcxproj
+		SccLocalPath3 = .
+		SccProjectFilePathRelativizedFromConnection3 = Shared\\
+		SccProjectUniqueName4 = Broker\\Broker.vcxproj
+		SccLocalPath4 = .
+		SccProjectFilePathRelativizedFromConnection4 = Broker\\
+		SccProjectUniqueName5 = Client\\Client.vcxproj
+		SccLocalPath5 = .
+		SccProjectFilePathRelativizedFromConnection5 = Client\\
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5EDB4107-A971-44D3-86C3-57F8FC54DF15}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5EDB4107-A971-44D3-86C3-57F8FC54DF15}.Debug|Win32.Build.0 = Debug|Win32
+		{5EDB4107-A971-44D3-86C3-57F8FC54DF15}.Release|Win32.ActiveCfg = Release|Win32
+		{5EDB4107-A971-44D3-86C3-57F8FC54DF15}.Release|Win32.Build.0 = Release|Win32
+		{E30D2257-8B79-4E27-BC23-FC171405DFF0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E30D2257-8B79-4E27-BC23-FC171405DFF0}.Debug|Win32.Build.0 = Debug|Win32
+		{E30D2257-8B79-4E27-BC23-FC171405DFF0}.Release|Win32.ActiveCfg = Release|Win32
+		{E30D2257-8B79-4E27-BC23-FC171405DFF0}.Release|Win32.Build.0 = Release|Win32
+		{C0DBC330-5827-4DC7-BFC4-621AED444FAC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C0DBC330-5827-4DC7-BFC4-621AED444FAC}.Debug|Win32.Build.0 = Debug|Win32
+		{C0DBC330-5827-4DC7-BFC4-621AED444FAC}.Release|Win32.ActiveCfg = Release|Win32
+		{C0DBC330-5827-4DC7-BFC4-621AED444FAC}.Release|Win32.Build.0 = Release|Win32
+		{5A1793D9-A12C-49DD-9622-2DC98508AF7B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5A1793D9-A12C-49DD-9622-2DC98508AF7B}.Debug|Win32.Build.0 = Debug|Win32
+		{5A1793D9-A12C-49DD-9622-2DC98508AF7B}.Release|Win32.ActiveCfg = Release|Win32
+		{5A1793D9-A12C-49DD-9622-2DC98508AF7B}.Release|Win32.Build.0 = Release|Win32
+		{B68DE41E-16FD-4201-9B4F-5C5C45B3B646}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B68DE41E-16FD-4201-9B4F-5C5C45B3B646}.Debug|Win32.Build.0 = Debug|Win32
+		{B68DE41E-16FD-4201-9B4F-5C5C45B3B646}.Release|Win32.ActiveCfg = Release|Win32
+		{B68DE41E-16FD-4201-9B4F-5C5C45B3B646}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
