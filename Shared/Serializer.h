@@ -21,6 +21,7 @@ namespace Shared
 		// Pre-allocate a dynamic buffer
 		Serializer(size_t buffer_size_in);
 
+
 		virtual ~Serializer();
 
 		// C Fundamental  types operations
@@ -42,12 +43,21 @@ namespace Shared
 		void operator >> (netU32 &val_out);
 		void operator >> (Serializer& val_out);
 
-		bool isBigIndian();
+		bool isBigIndian() const;
+		void resetCursor();
 
 	protected:
 
 	private:
-		
+		template<typename Type>
+		void typeToBuffer(Type val_in);
+
+		template<typename Type>
+		void bufferToType(Type &val_out);
+
+		size_t _cursor;
+		size_t _bufferSize;
+		char * _buffer;
 
 	};
 
