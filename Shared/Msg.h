@@ -1,10 +1,10 @@
 //**********************************************************************************************************************
 #pragma once
-
+#include "Serializer.h"
 namespace Shared
 {
 	//**********************************************************************************************************************
-	class Msg
+	class Msg : public Serializer
 	{
 	public:
 
@@ -14,11 +14,11 @@ namespace Shared
 		size_t GetBufferSize() const;
 
 	protected:
-
-		char	m_static_buffer[/*NetSocket::MTU*/1300];
+		/*
+		char	m_static_buffer[1300];
 		size_t	m_buffer_size;
 		size_t	m_buffer_capacity;
-
+		*/
 	};
 
 } //namespace Shared

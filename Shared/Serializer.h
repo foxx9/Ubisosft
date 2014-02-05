@@ -16,7 +16,7 @@ namespace Shared
 		typedef signed int netS32;
 
 		// Passing pbuffer_in  will cause a dynamic allocation strategy
-		Serializer(const char* pbuffer_in = 0, size_t buffer_size_in = 0);
+		Serializer(char* pbuffer_in = 0, size_t buffer_size_in = 0);
 	
 		// Pre-allocate a dynamic buffer
 		Serializer(size_t buffer_size_in);
@@ -47,6 +47,10 @@ namespace Shared
 		void resetCursor();
 
 	protected:
+		size_t _cursor;
+		size_t _bufferSize;
+		char * _buffer;
+		bool _shouldDelete;
 
 	private:
 		template<typename Type>
@@ -55,9 +59,7 @@ namespace Shared
 		template<typename Type>
 		void bufferToType(Type &val_out);
 
-		size_t _cursor;
-		size_t _bufferSize;
-		char * _buffer;
+		
 
 	};
 

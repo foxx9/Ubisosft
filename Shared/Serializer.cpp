@@ -9,12 +9,14 @@ namespace Shared
 			_cursor = 0;
 			_bufferSize = buffer_size_in;
 			_buffer = new char[buffer_size_in];
+			_shouldDelete = true;
 		}
 		
 		//passage par copie
 		// Passing pbuffer_in  will cause a dynamic allocation strategy
-		Serializer::Serializer(const char* pbuffer_in , size_t buffer_size_in)
+		Serializer::Serializer(char* pbuffer_in , size_t buffer_size_in)
 		{
+			/*
 			_cursor = 0;
 			_bufferSize = buffer_size_in;
 			_buffer = new char[buffer_size_in];
@@ -22,20 +24,26 @@ namespace Shared
 			{
 				_buffer[i] = pbuffer_in[i];
 			}
+			*/
+			_cursor = 0;
+			_buffer = pbuffer_in;
+			_bufferSize = buffer_size_in;
+			_shouldDelete = false;
 		}
 		
 
 
 		 Serializer::~Serializer()
 		 {
-			 delete _buffer;
+			 if (_shouldDelete)
+				 delete _buffer;
 		 }
 
 		bool Serializer::isBigIndian() const
 		{
-			short int number = 0x1;
+			short number = 0xabcd;
 			char *numPtr = (char*)&number;
-			return (numPtr[0] == 1);
+			return (numPtr[0] == 0xab );
 		}
 
 		void Serializer::resetCursor()
@@ -60,9 +68,9 @@ namespace Shared
 			}
 			else
 			{
-				for (size_t i = size-1 ; i >= 0 ; --i)
+				for (size_t i = size ; i > 0 ; --i)
 				{
-					_buffer[_cursor++] =  tab[i];
+					_buffer[_cursor++] =  tab[i-1];
 				}
 			}
 		}
@@ -84,9 +92,9 @@ namespace Shared
 			}
 			else
 			{
-				for (size_t i = size-1 ; i >= 0 ; --i)
+				for (size_t i = size ; i > 0 ; --i)
 				{
-					tab[i] = _buffer[_cursor++] ;
+					tab[i-1] = _buffer[_cursor++] ;
 				}
 			}
 		}

@@ -13,6 +13,13 @@ namespace Shared
 		m_PortNumber = -1;
 	}
 
+	NetPeer & NetPeer::operator=(const NetPeer& other)
+	{
+		m_IpAddress = other.m_IpAddress;
+		m_PortNumber = other.m_PortNumber;
+		return *this;
+	}
+
 	NetPeer::NetPeer(unsigned int  ip_in, unsigned short port_in)
 	{
 		m_IpAddress = ip_in;
@@ -35,12 +42,12 @@ namespace Shared
 		return m_IpAddress != -1 && m_PortNumber != -1 ;
 	}
 
-	unsigned int NetPeer::GetIPAddress()
+	unsigned int NetPeer::GetIPAddress() const
 	{
 		return m_IpAddress;
 	}
 
-	unsigned short NetPeer::GetPortNumber()
+	unsigned short NetPeer::GetPortNumber() const
 	{
 		return m_PortNumber;
 	}

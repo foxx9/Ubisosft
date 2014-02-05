@@ -7,9 +7,12 @@
 
 
 using namespace std;
+
 int main(void)
 {
-	/*
+	WSADATA data;
+	WSAStartup(MAKEWORD(2,2),&data);
+
 	class Bob : Shared::Serializable
 	{
 
@@ -87,13 +90,35 @@ int main(void)
 
 	cout << "s3 (s1 << s2 ) : " << resInt << " " << charInt << endl;
 
-	cout << "ce pc est BIG ENDIAN : " <<(ser.isBigIndian() ? "yep" : "nope" ) << endl;
-	*/
 
-	char * ip = "www.google.com";
+	
+	cout << "ce pc est BIG ENDIAN : " <<(ser.isBigIndian() ? "yep" : "nope" ) << endl;
+/*	char * ip = "www.google.com";
 	short port = 8080;
 	Shared::NetPeer dkl(ip,port);
 
+	*/
+
+	Shared::NetPeer broker("127.0.0.1", 9042);
+	
+	Shared::NetworkManager netManager(broker, 9043);
+	Shared::NetPeer myself("127.0.0.1", 9043);
+	
+	Shared::Msg msg_in;
+	Shared::Msg msg_out;
+/*
+	Shared::Serializer ser_in(msg_in.GetBuffer(), msg_in.GetBufferSize());
+	Shared::Serializer ser_out(msg_out.GetBuffer(), msg_out.GetBufferSize());
+
+	
+	*/
+
+	msg_in << 'a';
+
+	netManager.Init();
+	netManager.Send(myself, msg_in);
+	netManager.Refresh();
+	netManager.Term();
 
 	system("PAUSE");
 	return 0;
