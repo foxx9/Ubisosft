@@ -11,6 +11,7 @@ namespace Shared
 			_buffer = new char[buffer_size_in];
 		}
 		
+		//passage par copie
 		// Passing pbuffer_in  will cause a dynamic allocation strategy
 		Serializer::Serializer(const char* pbuffer_in , size_t buffer_size_in)
 		{
@@ -46,6 +47,8 @@ namespace Shared
 		void Serializer::typeToBuffer(Type val_in)
 		{
 			size_t size = sizeof(Type);
+			if ( size + _cursor > _bufferSize)
+				return;
 			char * tab = (char*) &val_in;
 
 			if ( isBigIndian())
@@ -57,9 +60,9 @@ namespace Shared
 			}
 			else
 			{
-				for (size_t i = size ; i > 0 ; --i)
+				for (size_t i = size-1 ; i >= 0 ; --i)
 				{
-					_buffer[_cursor++] =  tab[i-1];
+					_buffer[_cursor++] =  tab[i];
 				}
 			}
 		}
@@ -68,6 +71,8 @@ namespace Shared
 		void Serializer::bufferToType(Type &val_out)
 		{
 			size_t size = sizeof(Type);
+			if ( size + _cursor > _bufferSize)
+				return;
 			char* tab = (char*) &val_out;
 
 			if ( isBigIndian())
@@ -79,9 +84,9 @@ namespace Shared
 			}
 			else
 			{
-				for (size_t i = size ; i > 0 ; --i)
+				for (size_t i = size-1 ; i >= 0 ; --i)
 				{
-					tab[i-1] = _buffer[_cursor++] ;
+					tab[i] = _buffer[_cursor++] ;
 				}
 			}
 		}

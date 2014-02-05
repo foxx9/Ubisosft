@@ -3,12 +3,13 @@
 #include "SessionService.h"
 #include "Serializable.h"
 #include "Serializer.h"
+#include "NetPeer.h"
 
 
 using namespace std;
 int main(void)
 {
-
+	/*
 	class Bob : Shared::Serializable
 	{
 
@@ -45,6 +46,7 @@ int main(void)
 
 	//object a serialiser
 	Bob bob(5,'b');
+	cout << "object a serialiser " << endl;
 	cout << "number : " << bob.number << endl;
 	cout << "letter : " << bob.letter << endl;
 	//serialise
@@ -58,6 +60,7 @@ int main(void)
 	receiverBob.Unserialize(ser);
 
 	//affiche le résultat
+	cout << "object désérialisé " << endl;
 	cout << "number : " << receiverBob.number << endl;
 	cout << "letter : " << receiverBob.letter << endl;
 
@@ -85,8 +88,13 @@ int main(void)
 	cout << "s3 (s1 << s2 ) : " << resInt << " " << charInt << endl;
 
 	cout << "ce pc est BIG ENDIAN : " <<(ser.isBigIndian() ? "yep" : "nope" ) << endl;
+	*/
 
-	//a l'ancienne ma gueule
+	char * ip = "www.google.com";
+	short port = 8080;
+	Shared::NetPeer dkl(ip,port);
+
+
 	system("PAUSE");
 	return 0;
 }
