@@ -12,7 +12,7 @@ int main(void)
 {
 	WSADATA data;
 	WSAStartup(MAKEWORD(2,2),&data);
-
+	/*
 	class Bob : Shared::Serializable
 	{
 
@@ -93,7 +93,7 @@ int main(void)
 
 	
 	cout << "ce pc est BIG ENDIAN : " <<(ser.isBigIndian() ? "yep" : "nope" ) << endl;
-/*	char * ip = "www.google.com";
+	char * ip = "www.google.com";
 	short port = 8080;
 	Shared::NetPeer dkl(ip,port);
 
@@ -106,15 +106,17 @@ int main(void)
 	
 	Shared::Msg msg_in;
 	Shared::Msg msg_out;
-/*
+
+	char * buffer = msg_in.GetBuffer();
+	buffer[0] = 'a';
+	buffer[1] = 'b';
+	buffer[2] = 'c';
+	msg_in.SetBufferSize(3);
+
+	/*
 	Shared::Serializer ser_in(msg_in.GetBuffer(), msg_in.GetBufferSize());
 	Shared::Serializer ser_out(msg_out.GetBuffer(), msg_out.GetBufferSize());
-
-	
 	*/
-
-	msg_in << 'a';
-
 	netManager.Init();
 	netManager.Send(myself, msg_in);
 	netManager.Refresh();

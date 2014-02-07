@@ -67,9 +67,10 @@ namespace Shared
 		{
 			SOCKADDR_IN sin;
 			int len = sizeof(sin);
-			bool res =  recvfrom(m_socket, msg_out.GetBuffer(), msg_out.GetBufferSize(), 0, (SOCKADDR *) &sin, &len) >= 0;
+			int bytesRead =  recvfrom(m_socket, msg_out.GetBuffer(), msg_out.GetBufferSize(), 0, (SOCKADDR *) &sin, &len);
+			msg_out.SetBufferSize(bytesRead);
 			//TODO handle peerFrom_out
-			return res;
+			return bytesRead >= 0;
 		}
 	}
 
