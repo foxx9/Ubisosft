@@ -26,8 +26,7 @@ namespace Shared
 
 	bool NetworkManager::Init()
 	{
-		m_socket.Bind(m_listening_port);
-		return true;
+		return m_socket.Bind(m_listening_port);
 	}
 
 	bool NetworkManager::Refresh()
@@ -51,14 +50,8 @@ namespace Shared
 
 	int	NetworkManager::Send(const NetPeer& peerTo_in, Msg &msg_in) 
 	{
-		if ( m_socket.Send(peerTo_in, msg_in))
-		{
-			return 1;
-		}
-		else
-		{
-			return -1;
-		}
+		int err = m_socket.Send(peerTo_in, msg_in);
+		return err;
 	}
 
 	int NetworkManager::SendToBroker(Msg &msg_in)

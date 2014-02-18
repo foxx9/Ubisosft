@@ -23,7 +23,7 @@ namespace Shared
 		bool	IsWritable(long time_msec_in);
 
 		bool	Read(NetPeer &peerFrom_out, Msg& msg_out);
-		bool	Send(const NetPeer& peerTo_in, const Msg& msg_in);
+		int		Send(const NetPeer& peerTo_in, const Msg& msg_in);
 
 	protected:
 		int		_SendTo (unsigned int ip_addr_in, unsigned short port_in,const char* buffer_in, size_t buffer_size_in);

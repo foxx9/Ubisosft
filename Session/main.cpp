@@ -11,7 +11,7 @@ using namespace std;
 int main(void)
 {
 	WSADATA data;
-	WSAStartup(MAKEWORD(2,2),&data);
+	WSAStartup(MAKEWORD(1,1),&data);
 	/*
 	class Bob : Shared::Serializable
 	{
@@ -99,7 +99,7 @@ int main(void)
 
 	*/
 
-	Shared::NetPeer broker("127.0.0.1", 9042);
+	Shared::NetPeer broker("127.0.0.1", 8889);
 	
 	Shared::NetworkManager netManager(broker, 9043);
 	Shared::NetPeer myself("127.0.0.1", 9043);
@@ -111,15 +111,19 @@ int main(void)
 	buffer[0] = 'a';
 	buffer[1] = 'b';
 	buffer[2] = 'c';
-	msg_in.SetBufferSize(3);
+	buffer[3] = 0;
+	msg_in.SetBufferSize(4);
 
-	/*
+	
 	Shared::Serializer ser_in(msg_in.GetBuffer(), msg_in.GetBufferSize());
-	Shared::Serializer ser_out(msg_out.GetBuffer(), msg_out.GetBufferSize());
+	/*Shared::Serializer ser_out(msg_out.GetBuffer(), msg_out.GetBufferSize());
 	*/
-	netManager.Init();
-	netManager.Send(myself, msg_in);
-	netManager.Refresh();
+	bool is_ok = netManager.Init();
+	while (1)
+	{
+		bool bnewmessage = netManager.Refresh();
+		netManager.Send(broker, msg_in);
+	}
 	netManager.Term();
 
 	system("PAUSE");
