@@ -20,6 +20,12 @@ namespace Shared
 		return *this;
 	}
 
+	NetPeer::NetPeer(const NetPeer &other)
+	{
+		m_IpAddress = other.m_IpAddress;
+		m_PortNumber = other.m_PortNumber;
+	}
+
 	NetPeer::NetPeer(unsigned int  ip_in, unsigned short port_in)
 	{
 		m_IpAddress = (ip_in);

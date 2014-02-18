@@ -99,6 +99,8 @@ int main(void)
 
 	*/
 
+
+	//on lance les messages sur le main du broker
 	Shared::NetPeer broker("127.0.0.1", 8889);
 	
 	Shared::NetworkManager netManager(broker, 9043);

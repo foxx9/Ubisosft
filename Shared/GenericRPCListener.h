@@ -23,7 +23,7 @@ namespace Shared
 	class GenericRPCListener
 	{
 	public:
-		virtual bool OnIncomingQuery(Shared::IncomingQuery& query);
+		virtual bool OnIncomingData(Shared::NetPeer& query, Shared::Msg& msg);
 		virtual bool OnInit();
 		virtual bool OnUpdate();
 		virtual bool OnTerm();
